@@ -127,5 +127,5 @@ shapelist = json.dumps(shapelist)
 # Run Node.js and return the exit code.
 subprocess.run(["node", "./app.js", shapelist,inputimgname])
 # cv2.imshow('shapes', img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()

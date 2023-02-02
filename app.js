@@ -12,7 +12,7 @@ for (shape of shapeslist) {
   cy = shape[4];
   console.log(cx, cy);
 
-  if (cx > 8 && cy > 8) {
+  if (cx > 15 && cy > 15) {
     finalshape.push(shape);
   }
 }
@@ -38,35 +38,41 @@ const run = async () => {
 
   await pptx.save(`./shapes-test.pptx`);
   console.log("ober", inputimagename);
+  console.log("ober2", finalshape.length);
   process = spawn("python", ["./addBorder.py", `${finalshape.length}`, inputimagename]);
   // console.log(a)
   process.stdout.on("data", async data => {
+    // console.log("final data:",eval(data.toString()));
+    textData = eval(data.toString());
+    console.log(textData);
+    // textData.map(data=>{
+    // await pres.getSlide("slide1").addImage(image => {
+    //   image.file(`./images/pizza.jpg`).x(500).y(100).cx(166).cy(100);
+    // });
+    // })
     // char = eval(data.toString())[0];
     // x = eval(data.toString())[1];
     // y = eval(data.toString())[2];
-    // await pptx.load(`./new.pptx`);
+    await pptx.load(`./new.pptx`);
+    await pptx.compose(async pres => {
+      for (let i = 0; i < textData.length; i++) {
+      await pres.getSlide("slide1").addText(text => {
+            text
+              .value(textData[i][0])
+              .x(textData[i][1])
+              .y(textData[i][2])
+              .fontFace("Alien Encounters")
+              .fontSize(20)
+              .textColor("000000")
+              .textWrap("none")
+              .textAlign("left")
+              .textVerticalAlign("center");
+          }
+        );
+      }
+    });
 
-    // await pptx.compose(async pres => {
-    //   await pres.addSlide(slide => {
-    //     // declarative way of adding an object
-    //     for (let i = 0; i < char.length; i++) {
-    //       slide.addText(text => {
-    //         text
-    //           .value(char[i])
-    //           .x(x[i])
-    //           .y(y[i])
-    //           .fontFace("Alien Encounters")
-    //           .fontSize(16)
-    //           .textColor("CC0000")
-    //           .textWrap("none")
-    //           .textAlign("left")
-    //           .textVerticalAlign("center");
-    //       });
-    //     }
-    //   });
-
-    //   await pptx.save(`./new.pptx`);
-    // });
+    await pptx.save(`./new.pptx`);
   });
 };
 
