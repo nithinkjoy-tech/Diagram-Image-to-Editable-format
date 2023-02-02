@@ -4,13 +4,13 @@ const {spawn} = require("child_process");
 
 shapeslist = JSON.parse(process.argv[2]);
 inputimagename = process.argv[3];
-console.log(inputimagename);
+// console.log(inputimagename);
 finalshape = [];
 
 for (shape of shapeslist) {
   cx = shape[3];
   cy = shape[4];
-  console.log(cx, cy);
+  // console.log(cx, cy);
 
   if (cx > 15 && cy > 15) {
     finalshape.push(shape);
@@ -21,30 +21,24 @@ const run = async () => {
   await pptx.compose(async pres => {
     await pres.addSlide(slide => {
       finalshape.forEach((_, i) => {
-        console.log(_);
+        // console.log(_);
         shapename = "PPTX.ShapeTypes." + _[0];
         slide.addShape(shape => {
           shape.type(eval(shapename)).x(_[1]).y(_[2]).cx(_[3]).cy(_[4]).color("ffffff");
         });
       });
-
-      //Creating a shape using the object-only syntax.
-      //   slide.addShape({ type: PPTX.ShapeTypes.OVAL, x: 150, y: 50, cx: 300, cy: 300, color: '0000FF' });
-
-      // Adding a hyperlink to the shape.
-      //   slide.addShape({ type: PPTX.ShapeTypes.UP_ARROW, x: 500, y: 140, cx: 100, cy: 50, color: '0000FF'});
     });
   });
 
   await pptx.save(`./shapes-test.pptx`);
-  console.log("ober", inputimagename);
-  console.log("ober2", finalshape.length);
+  // console.log("ober", inputimagename);
+  // console.log("ober2", finalshape.length);
   process = spawn("python", ["./addBorder.py", `${finalshape.length}`, inputimagename]);
   // console.log(a)
   process.stdout.on("data", async data => {
     // console.log("final data:",eval(data.toString()));
     textData = eval(data.toString());
-    console.log(textData);
+    // console.log(textData);
     // textData.map(data=>{
     // await pres.getSlide("slide1").addImage(image => {
     //   image.file(`./images/pizza.jpg`).x(500).y(100).cx(166).cy(100);

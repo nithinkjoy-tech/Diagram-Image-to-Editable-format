@@ -4,7 +4,7 @@ let pptx = new PPTX.Composer();
 char = process.argv[2];
 x = process.argv[3];
 y = process.argv[4];
-console.log(char, x, y);
+// console.log(char, x, y);
 
 async function addText() {
   await pptx.load(`./new.pptx`);
@@ -28,6 +28,7 @@ async function addText() {
   });
 
   await pptx.save(`./hello-world.pptx`);
+  
 }
 
 addText();

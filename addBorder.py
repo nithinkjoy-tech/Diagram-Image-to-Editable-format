@@ -1,4 +1,6 @@
 try:
+    import os
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
     import easyocr
     import cv2
     from matplotlib import pyplot as plt
