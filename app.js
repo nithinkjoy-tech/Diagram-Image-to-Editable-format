@@ -1,11 +1,13 @@
 const PPTX = require("nodejs-pptx");
 let pptx = new PPTX.Composer();
 const {spawn} = require("child_process");
+const { execFile } = require('child_process');
 
 shapeslist = JSON.parse(process.argv[2]);
 inputimagename = process.argv[3];
 // console.log(inputimagename);
 finalshape = [];
+
 
 for (shape of shapeslist) {
   cx = shape[3];
@@ -50,19 +52,18 @@ const run = async () => {
     await pptx.load(`./new.pptx`);
     await pptx.compose(async pres => {
       for (let i = 0; i < textData.length; i++) {
-      await pres.getSlide("slide1").addText(text => {
-            text
-              .value(textData[i][0])
-              .x(textData[i][1])
-              .y(textData[i][2])
-              .fontFace("Alien Encounters")
-              .fontSize(20)
-              .textColor("000000")
-              .textWrap("none")
-              .textAlign("left")
-              .textVerticalAlign("center");
-          }
-        );
+        await pres.getSlide("slide1").addText(text => {
+          text
+            .value(textData[i][0])
+            .x(textData[i][1])
+            .y(textData[i][2])
+            .fontFace("Alien Encounters")
+            .fontSize(20)
+            .textColor("000000")
+            .textWrap("none")
+            .textAlign("left")
+            .textVerticalAlign("center");
+        });
       }
     });
 
