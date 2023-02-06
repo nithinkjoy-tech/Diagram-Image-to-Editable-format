@@ -49,7 +49,7 @@ const run = async () => {
     // char = eval(data.toString())[0];
     // x = eval(data.toString())[1];
     // y = eval(data.toString())[2];
-    await pptx.load(`./new.pptx`);
+    await pptx.load(`./shapes-test.pptx`);
     await pptx.compose(async pres => {
       for (let i = 0; i < textData.length; i++) {
         await pres.getSlide("slide1").addText(text => {
@@ -67,7 +67,7 @@ const run = async () => {
       }
     });
 
-    await pptx.save(`./new.pptx`);
+    await pptx.save(`./shapes-test.pptx`);
   });
 };
 

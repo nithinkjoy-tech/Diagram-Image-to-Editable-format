@@ -29,7 +29,7 @@ try:
     # Save the changes to the PowerPoint file
     prs.slide_width = Inches(11.5)
     prs.slide_height = Inches(10)
-    prs.save('./new.pptx')
+    prs.save('./shapes-test.pptx')
 
     IMAGE_PATH = fname
 

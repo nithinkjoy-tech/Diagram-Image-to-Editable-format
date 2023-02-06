@@ -2,7 +2,7 @@ const {execFile}=require("child_process")
 
 const filePath = 'C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\POWERPNT.EXE';
 dirname=__dirname.replace(/\\/g, "\\\\");
-const fileToOpen = `${dirname}\\new.pptx`;
+const fileToOpen = `${dirname}\\shapes-test.pptx`;
 
 execFile(filePath, [fileToOpen], (error, stdout, stderr) => {
   if (error) {
