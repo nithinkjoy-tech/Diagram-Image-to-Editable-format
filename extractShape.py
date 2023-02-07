@@ -1,7 +1,10 @@
 import cv2
 import json
+from halo import Halo
 
 def extractShape(outputimgname):
+    spinner = Halo(text='Extracting shapes from image...', spinner='dots')
+    spinner.start()
     img = cv2.imread(outputimgname)
     imgGry = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -73,4 +76,6 @@ def extractShape(outputimgname):
             # cv2.putText(img, "circle", (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 0, 0))
 
     shapelist = json.dumps(shapelist)
+    print()
+    spinner.stop()
     return shapelist

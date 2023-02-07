@@ -29,14 +29,12 @@ outputimgname+=".png"
 print()
 #here
 eraseText.eraseText(inputimgname, outputimgname)
-#find shapes and points
-spinner = Halo(text='Extracting shapes from image...', spinner='dots')
-spinner.start()
+
+
 #here
 
 shapelist=extractShape.extractShape(outputimgname)
-print()
-spinner.stop()
+
 
 spinner = Halo(text='Drawing shape and adding text to a ppt file...', spinner='dots')
 spinner.start()
