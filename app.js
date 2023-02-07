@@ -4,18 +4,9 @@ const addText = require("./addText");
 
 shapeslist = JSON.parse(process.argv[2]);
 inputimagename = process.argv[3];
-finalshape = [];
 
-for (shape of shapeslist) {
-  cx = shape[3];
-  cy = shape[4];
 
-  if (cx > 15 && cy > 15) {
-    finalshape.push(shape);
-  }
-}
-
-addShape.addShape(finalshape);
+addShape.addShape(shapeslist);
 
 process = spawn("python", ["./addBorder.py", `${finalshape.length}`, inputimagename]);
 
