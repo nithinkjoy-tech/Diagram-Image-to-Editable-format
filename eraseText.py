@@ -15,11 +15,9 @@ def eraseText(inputimgname,outputimgname):
     spinner.stop()
 
     def inpaint_text(img_path, pipeline):
-        # read image
         spinner = Halo(text='Extracting text from image...', spinner='dots')
         spinner.start()
         img = keras_ocr.tools.read(img_path)
-        # generate (word, box) tuples 
         
         prediction_groups = pipeline.recognize([img])
         print()
