@@ -12,21 +12,17 @@ try:
     import pytesseract
     from pytesseract import Output
     import subprocess
-    # Open the PowerPoint file
     no=int(sys.argv[1])
     fname=sys.argv[2]
     prs = Presentation('./shapes-test.pptx')
 
-    # Get the first slide
     slide = prs.slides[0]
 
-    # Get the first shape on the slide
     for i in range(1,no+1):
         shape = slide.shapes[i]
         shape.line.width = Pt(2)
         shape.line.color.rgb = RGBColor(0, 0, 0)
 
-    # Save the changes to the PowerPoint file
     prs.slide_width = Inches(11.5)
     prs.slide_height = Inches(10)
     prs.save('./shapes-test.pptx')
@@ -56,8 +52,7 @@ try:
         loclist=list(top_left)
         count+=1
         alldata.append([text,loclist[0],loclist[1]])
-        # xloc.append(loclist[0])
-        # yloc.append(loclist[1])
+
     print(alldata)
 except Exception as e:
     print(e)
