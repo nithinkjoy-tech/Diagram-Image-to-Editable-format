@@ -24,11 +24,8 @@ outputimgname+=".png"
 
 print()
 eraseText.eraseText(inputimgname, outputimgname)
-spinner = Halo(text='Extracting shapes from image...', spinner='dots')
-spinner.start()
 
 shapelist=extractShape.extractShape(outputimgname)
-
 
 spinner = Halo(text='Drawing shape and adding text to a ppt file...', spinner='dots')
 spinner.start()
