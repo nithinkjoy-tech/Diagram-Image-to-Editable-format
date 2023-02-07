@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from halo import Halo
 import eraseText
 import extractShape
+import inputImage
 
 spinner = Halo(text='Loading Image processing packages....', spinner='dots')
 spinner.start()
@@ -16,10 +17,7 @@ import keras_ocr
 spinner.stop()
 import math
 
-inputimgname=input('\033[92m'+"Enter input img name without extension: (ex:image1)")
-inputimgname+=".png"
-outputimgname=input('\033[92m'+"Enter output img name without extension: (ex:image1)")
-outputimgname+=".png"
+inputimgname,outputimgname =inputImage.inputImage()
 
 
 print()
