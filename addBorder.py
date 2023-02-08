@@ -12,6 +12,7 @@ try:
     import pytesseract
     from pytesseract import Output
     import subprocess
+    
     no=int(sys.argv[1])
     fname=sys.argv[2]
     prs = Presentation('./shapes-test.pptx')
@@ -26,34 +27,6 @@ try:
     prs.slide_width = Inches(11.5)
     prs.slide_height = Inches(10)
     prs.save('./shapes-test.pptx')
-
-    IMAGE_PATH = fname
-
-    reader = easyocr.Reader(['en'],gpu=True)
-    result = reader.readtext(IMAGE_PATH)
-
-    top_left = tuple(result[0][0][0])
-    bottom_right = tuple(result[0][0][2])
-    text = result[0][1]
-    font = cv2.FONT_HERSHEY_SIMPLEX
-
-    img = cv2.imread(IMAGE_PATH)
-    spacer = 100
-
-    alldata=[]
-    count=0
-    for detection in result: 
-        top_left = tuple(detection[0][0])
-        bottom_right = tuple(detection[0][2])
-        text = detection[1]
-        img = cv2.rectangle(img,top_left,bottom_right,(0,255,0),3)
-        img = cv2.putText(img,text,(20,spacer), font, 0.5,(0,255,0),2,cv2.LINE_AA)
-        spacer+=15
-        loclist=list(top_left)
-        count+=1
-        alldata.append([text,loclist[0],loclist[1]])
-
-    print(alldata)
 except Exception as e:
     print(e)
     raise e

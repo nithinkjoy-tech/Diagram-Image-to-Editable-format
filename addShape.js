@@ -1,6 +1,8 @@
 const PPTX = require("nodejs-pptx");
 let pptx = new PPTX.Composer();
 
+shapecount=0
+
 exports.addShape = async shapeslist => {
   finalshape = [];
 
@@ -12,6 +14,8 @@ exports.addShape = async shapeslist => {
       finalshape.push(shape);
     }
   }
+
+  shapecount=finalshape.length
 
   await pptx.compose(async pres => {
     await pres.addSlide(slide => {
@@ -26,3 +30,7 @@ exports.addShape = async shapeslist => {
 
   await pptx.save(`./shapes-test.pptx`);
 };
+
+exports.shapeCount=()=>{
+  return shapecount
+}
