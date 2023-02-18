@@ -2,6 +2,7 @@ import os
 import cv2
 import math
 import json
+import openppt
 import subprocess
 import numpy as np
 from halo import Halo
@@ -29,4 +30,5 @@ subprocess.run(["node", "./app.js", shapelist,inputimgname])
 spinner.stop()
 
 print('\033[92m'+"Successfully completed")
-subprocess.run(["node", "./openppt.js"])
+
+openppt.openppt()
