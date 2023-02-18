@@ -3,14 +3,11 @@ try:
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
     import easyocr
     import cv2
-    from matplotlib import pyplot as plt
     import numpy as np
     from pptx import Presentation
     from pptx.util import Pt,Inches
     from pptx.dml.color import RGBColor
     import sys
-    import pytesseract
-    from pytesseract import Output
     import subprocess
     
     no=int(sys.argv[1])

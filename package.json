@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@spinozapps/pptxgenjs": "^3.11.0-spinozapps.4",
-    "nodejs-pptx": "^1.2.3",
-    "pptxgenjs": "^1.2.0-2",
-    "shelljs": "^0.8.5"
+    "nodejs-pptx": "^1.2.3"
   }
 }
