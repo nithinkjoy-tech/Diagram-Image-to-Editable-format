@@ -23,19 +23,15 @@ https://user-images.githubusercontent.com/62066971/223629951-ff5c6fea-3a9e-4b29-
 
 
 ## Screenshots
-Before
 ![input1](https://user-images.githubusercontent.com/62066971/223630139-c891e6a8-3695-480f-a9bb-416802b6e560.png)
 
 
-After
 ![WhatsApp Image 2023-03-08 at 10 08 33 AM](https://user-images.githubusercontent.com/62066971/223630193-d8748292-1009-4c36-8ec3-1544030ca07f.jpeg)
 
 
-Before
 ![input2](https://user-images.githubusercontent.com/62066971/223630212-c6806ff4-b141-4da5-a49c-0c760be77ac2.png)
 
 
-After
 ![WhatsApp Image 2023-03-08 at 10 00 28 AM](https://user-images.githubusercontent.com/62066971/223630268-ed76c3dc-2b3c-4f68-8490-778c53b26bc9.jpeg)
 
 
